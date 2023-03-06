@@ -18,8 +18,12 @@ for (let i = 0; i < 7; i++) {
   row.className = 'row'
   document.getElementById('grid').appendChild(row)
   for (let j = 0; j < 10; j++) {
-    var randomColor = Math.floor(Math.random() * 16777215).toString(16)
-    let colorTag = '#' + randomColor
+    var randomRed = Math.floor(Math.random() * 255)
+    var randomGreen = Math.floor(Math.random() * 255)
+    var randomBlue = Math.floor(Math.random() * 255)
+    let colorTag = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`
+    console.log(colorTag);
+    console.log(`box${i}${j}`);
 
     document.getElementById(row.id).appendChild(colorbox.addBox(`box${i}${j}`, colorTag))
   }
