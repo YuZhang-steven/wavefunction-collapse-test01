@@ -1,7 +1,11 @@
 import colorBox from './colorBox'
 import './style.css'
 
-let colorbox = new colorBox()
+let width = 10
+let height = 7
+let colorbox = new colorBox(width, height)
+
+
 
 
 
@@ -11,17 +15,18 @@ grid.className = 'grid'
 
 document.body.appendChild(grid)
 
-for (let i = 0; i < 7; i++) {
+let boxnumber = 0
+
+for (let i = 0; i < height; i++) {
 
   let row = document.createElement('div')
   row.id = `row${i}`
   row.className = 'row'
   document.getElementById('grid').appendChild(row)
-  for (let j = 0; j < 10; j++) {
-    var randomRed = Math.floor(Math.random() * 255)
-    var randomGreen = Math.floor(Math.random() * 255)
-    var randomBlue = Math.floor(Math.random() * 255)
-    let colorTag = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`
+  for (let j = 0; j < width; j++) {
+
+    let colorTag = colorbox.colorList[boxnumber]
+    boxnumber++
     console.log(colorTag);
     console.log(`box${i}${j}`);
 

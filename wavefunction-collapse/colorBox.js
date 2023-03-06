@@ -1,5 +1,8 @@
+import randomColor from "randomcolor"
+
+
 export default class colorBox {
-    constructor() {
+    constructor(width = 10, height = 7) {
         this.color = 'red'
         this.size = '50px'
 
@@ -17,6 +20,11 @@ export default class colorBox {
             
             `
         )
+        this.wideth = width
+        this.height = height
+
+        this.colorList = []
+        this.initColorlist()
 
     }
 
@@ -35,6 +43,16 @@ export default class colorBox {
             `
         )
         return box
+    }
+
+    initColorlist() {
+        this.colorList = randomColor({
+            count: this.wideth * this.height,
+            format: 'rgb',
+            hue: 'green',
+
+        })
+
     }
 
 
